@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<p id="message"></p>
+		<p id="demo"></p>
+		<input type="button" value="测试" onclick="myFunction()" />
+		<script>
+			function myFunction() {
+				var message, x;
+				message = document.getElementById("message");
+				message.innerHTML = "";
+				x = document.getElementById("demo").value;
+				try {
+					if(x == "") throw "值为空";
+					if(isNaN(x)) throw "不是数字";
+					x = Number(x);
+					if(x < 5) throw "太小";
+					if(x > 10) throw "太大";
+				} catch(err) {
+					message.innerHTML = "错误: " + err;
+				}
+			}
+		</script>
+	</body>
+
+</html>
